@@ -50,6 +50,7 @@
             this.linkPlay.TabStop = true;
             this.linkPlay.Text = "Играть";
             this.linkPlay.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkPlay.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPlay_LinkClicked);
             this.linkPlay.Enter += new System.EventHandler(this.linkPlay_Enter);
             this.linkPlay.Leave += new System.EventHandler(this.linkPlay_Leave);
             this.linkPlay.MouseLeave += new System.EventHandler(this.linkPlay_MouseLeave);

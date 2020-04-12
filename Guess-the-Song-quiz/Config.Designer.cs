@@ -200,6 +200,8 @@
             this.MaximizeBox = false;
             this.Name = "fConfig";
             this.Text = "Настройки";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fConfig_FormClosing);
+            this.Shown += new System.EventHandler(this.fConfig_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

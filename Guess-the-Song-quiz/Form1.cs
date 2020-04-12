@@ -18,6 +18,7 @@ namespace Guess_the_Song_quiz
         }
 
         fConfig fc = new fConfig();
+        fGame fg = new fGame();
 
         private void linkPlay_Enter(object sender, EventArgs e)
         {
@@ -87,6 +88,12 @@ namespace Guess_the_Song_quiz
         private void linkConfig_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             fc.ShowDialog();
+        }
+
+        private void linkPlay_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            fg.Show();
+            this.Hide();
         }
     }
 }
