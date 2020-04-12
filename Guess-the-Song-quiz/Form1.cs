@@ -17,6 +17,8 @@ namespace Guess_the_Song_quiz
             InitializeComponent();
         }
 
+        fConfig fc = new fConfig();
+
         private void linkPlay_Enter(object sender, EventArgs e)
         {
             linkPlay.LinkColor = System.Drawing.Color.LimeGreen;
@@ -80,6 +82,11 @@ namespace Guess_the_Song_quiz
         private void linkExit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
+        }
+
+        private void linkConfig_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            fc.ShowDialog();
         }
     }
 }

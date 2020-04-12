@@ -63,6 +63,16 @@ namespace Guess_the_Song_quiz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap headphone {
+            get {
+                object obj = ResourceManager.GetObject("headphone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap oy7vw3_coverartmanual {
             get {
                 object obj = ResourceManager.GetObject("oy7vw3_coverartmanual", resourceCulture);

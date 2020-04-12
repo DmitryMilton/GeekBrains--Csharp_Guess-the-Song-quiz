@@ -36,7 +36,7 @@
             // 
             // linkPlay
             // 
-            this.linkPlay.ActiveLinkColor = System.Drawing.Color.LimeGreen;
+            this.linkPlay.ActiveLinkColor = System.Drawing.Color.LawnGreen;
             this.linkPlay.AutoSize = true;
             this.linkPlay.BackColor = System.Drawing.Color.Transparent;
             this.linkPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -57,7 +57,7 @@
             // 
             // linkConfig
             // 
-            this.linkConfig.ActiveLinkColor = System.Drawing.Color.LimeGreen;
+            this.linkConfig.ActiveLinkColor = System.Drawing.Color.LawnGreen;
             this.linkConfig.AutoSize = true;
             this.linkConfig.BackColor = System.Drawing.Color.Transparent;
             this.linkConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -71,6 +71,7 @@
             this.linkConfig.TabStop = true;
             this.linkConfig.Text = "Настройки";
             this.linkConfig.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkConfig.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkConfig_LinkClicked);
             this.linkConfig.Enter += new System.EventHandler(this.linkConfig_Enter);
             this.linkConfig.Leave += new System.EventHandler(this.linkConfig_Leave);
             this.linkConfig.MouseLeave += new System.EventHandler(this.linkConfig_MouseLeave);
