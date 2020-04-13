@@ -132,11 +132,12 @@ namespace Guess_the_Song_quiz
 
         private void linkOK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Victorina.list.Clear();
-            Victorina.list.AddRange(musicList);
-            lbSongsList.Items.Clear();
-            musicPath = tbPath.Text;
-            includeDir = chbInclude.Checked;
+            //Victorina.list.Clear();
+            //Victorina.list.AddRange(musicList);
+            //lbSongsList.Items.Clear();
+            //musicPath = tbPath.Text;
+            //includeDir = chbInclude.Checked;
+            Victorina.WriteParam();
             this.Hide();
         }
 
