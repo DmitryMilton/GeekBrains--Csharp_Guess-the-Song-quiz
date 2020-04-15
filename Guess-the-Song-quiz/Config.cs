@@ -19,8 +19,6 @@ namespace Guess_the_Song_quiz
         }
 
         string[] musicList;
-        string musicPath;
-        bool includeDir = true;
 
         private void linkPath_Enter(object sender, EventArgs e)
         {
@@ -124,20 +122,19 @@ namespace Guess_the_Song_quiz
 
         private void linkCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            tbPath.Text = musicPath;
-            chbInclude.Checked = includeDir;
-            lbSongsList.Items.Clear();
             this.Hide();
         }
 
         private void linkOK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //Victorina.list.Clear();
-            //Victorina.list.AddRange(musicList);
-            //lbSongsList.Items.Clear();
-            //musicPath = tbPath.Text;
-            //includeDir = chbInclude.Checked;
+            Victorina.allDirectories = chbAllDirectories.Checked;
+            Victorina.gameDuration = Convert.ToInt32(cbGameDuration.Text);
+            Victorina.musicDuration = Convert.ToInt32(cbMusicDuration.Text);
+            Victorina.randomStart = chbRandomStart.Checked;
+            Victorina.lastFolder = tbPath.Text;
+            Victorina.ReadMusic();
             Victorina.WriteParam();
+            lbSongsList.Items.Clear();
             this.Hide();
         }
 
@@ -153,23 +150,20 @@ namespace Guess_the_Song_quiz
         private void linkAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             lbSongsList.Items.Clear();
-            musicList = Directory.GetFiles(tbPath.Text, "*.mp3", chbInclude.Checked?SearchOption.AllDirectories:SearchOption.TopDirectoryOnly);
+            musicList = Directory.GetFiles(tbPath.Text, "*.mp3", chbAllDirectories.Checked ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
             lbSongsList.Items.AddRange(musicList);
         }
 
         private void fConfig_Shown(object sender, EventArgs e)
         {
-            tbPath.Text = musicPath;
-            chbInclude.Checked = includeDir;
+            chbAllDirectories.Checked = Victorina.allDirectories;
+            cbGameDuration.Text = Convert.ToString(Victorina.gameDuration);
+            cbMusicDuration.Text = Convert.ToString(Victorina.musicDuration);
+            chbRandomStart.Checked = Victorina.randomStart;
+            tbPath.Text = Victorina.lastFolder;
+            lbSongsList.Items.Clear();
             musicList = Victorina.list.ToArray();
             lbSongsList.Items.AddRange(musicList);
-        }
-
-        private void fConfig_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            tbPath.Text = musicPath;
-            chbInclude.Checked = includeDir;
-            lbSongsList.Items.Clear();
         }
     }
 }

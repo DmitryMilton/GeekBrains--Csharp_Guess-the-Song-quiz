@@ -31,22 +31,30 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fConfig));
             this.lbSongsList = new System.Windows.Forms.ListBox();
             this.tbPath = new System.Windows.Forms.TextBox();
-            this.chbInclude = new System.Windows.Forms.CheckBox();
+            this.chbAllDirectories = new System.Windows.Forms.CheckBox();
             this.linkClear = new System.Windows.Forms.LinkLabel();
             this.linkPath = new System.Windows.Forms.LinkLabel();
             this.linkAdd = new System.Windows.Forms.LinkLabel();
             this.linkOK = new System.Windows.Forms.LinkLabel();
             this.linkCancel = new System.Windows.Forms.LinkLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbGameDuration = new System.Windows.Forms.ComboBox();
+            this.cbMusicDuration = new System.Windows.Forms.ComboBox();
+            this.chbRandomStart = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbSongsList
             // 
-            this.lbSongsList.BackColor = System.Drawing.Color.White;
-            this.lbSongsList.ForeColor = System.Drawing.Color.Black;
+            this.lbSongsList.BackColor = System.Drawing.Color.Black;
+            this.lbSongsList.ForeColor = System.Drawing.Color.LimeGreen;
             this.lbSongsList.FormattingEnabled = true;
-            this.lbSongsList.Location = new System.Drawing.Point(11, 90);
+            this.lbSongsList.Location = new System.Drawing.Point(11, 148);
             this.lbSongsList.Name = "lbSongsList";
-            this.lbSongsList.Size = new System.Drawing.Size(610, 225);
+            this.lbSongsList.Size = new System.Drawing.Size(610, 199);
             this.lbSongsList.TabIndex = 0;
             // 
             // tbPath
@@ -56,20 +64,20 @@
             this.tbPath.Size = new System.Drawing.Size(438, 20);
             this.tbPath.TabIndex = 3;
             // 
-            // chbInclude
+            // chbAllDirectories
             // 
-            this.chbInclude.AutoSize = true;
-            this.chbInclude.BackColor = System.Drawing.Color.Black;
-            this.chbInclude.Checked = true;
-            this.chbInclude.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbInclude.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chbInclude.ForeColor = System.Drawing.Color.SteelBlue;
-            this.chbInclude.Location = new System.Drawing.Point(11, 420);
-            this.chbInclude.Name = "chbInclude";
-            this.chbInclude.Size = new System.Drawing.Size(210, 19);
-            this.chbInclude.TabIndex = 4;
-            this.chbInclude.Text = "Учитывая вложенные каталоги";
-            this.chbInclude.UseVisualStyleBackColor = false;
+            this.chbAllDirectories.AutoSize = true;
+            this.chbAllDirectories.BackColor = System.Drawing.Color.Black;
+            this.chbAllDirectories.Checked = true;
+            this.chbAllDirectories.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbAllDirectories.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chbAllDirectories.ForeColor = System.Drawing.Color.SteelBlue;
+            this.chbAllDirectories.Location = new System.Drawing.Point(11, 420);
+            this.chbAllDirectories.Name = "chbAllDirectories";
+            this.chbAllDirectories.Size = new System.Drawing.Size(210, 19);
+            this.chbAllDirectories.TabIndex = 4;
+            this.chbAllDirectories.Text = "Учитывая вложенные каталоги";
+            this.chbAllDirectories.UseVisualStyleBackColor = false;
             // 
             // linkClear
             // 
@@ -80,7 +88,7 @@
             this.linkClear.ForeColor = System.Drawing.Color.DodgerBlue;
             this.linkClear.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkClear.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.linkClear.Location = new System.Drawing.Point(12, 318);
+            this.linkClear.Location = new System.Drawing.Point(8, 350);
             this.linkClear.Name = "linkClear";
             this.linkClear.Size = new System.Drawing.Size(82, 18);
             this.linkClear.TabIndex = 7;
@@ -179,6 +187,103 @@
             this.linkCancel.MouseLeave += new System.EventHandler(this.linkCancel_MouseLeave);
             this.linkCancel.MouseHover += new System.EventHandler(this.linkCancel_MouseHover);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.chbRandomStart);
+            this.groupBox1.Controls.Add(this.cbMusicDuration);
+            this.groupBox1.Controls.Add(this.cbGameDuration);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.groupBox1.Location = new System.Drawing.Point(11, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(608, 110);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Настройки времени игры";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(7, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(194, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Продолжительность игры (мин)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(7, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Время на ответ (сек)";
+            // 
+            // cbGameDuration
+            // 
+            this.cbGameDuration.FormattingEnabled = true;
+            this.cbGameDuration.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "30",
+            "45",
+            "60",
+            "90",
+            "120"});
+            this.cbGameDuration.Location = new System.Drawing.Point(207, 20);
+            this.cbGameDuration.Name = "cbGameDuration";
+            this.cbGameDuration.Size = new System.Drawing.Size(56, 24);
+            this.cbGameDuration.TabIndex = 2;
+            this.cbGameDuration.Text = "5";
+            // 
+            // cbMusicDuration
+            // 
+            this.cbMusicDuration.FormattingEnabled = true;
+            this.cbMusicDuration.Items.AddRange(new object[] {
+            "3",
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30"});
+            this.cbMusicDuration.Location = new System.Drawing.Point(207, 49);
+            this.cbMusicDuration.Name = "cbMusicDuration";
+            this.cbMusicDuration.Size = new System.Drawing.Size(56, 24);
+            this.cbMusicDuration.TabIndex = 3;
+            this.cbMusicDuration.Text = "20";
+            // 
+            // chbRandomStart
+            // 
+            this.chbRandomStart.AutoSize = true;
+            this.chbRandomStart.Checked = true;
+            this.chbRandomStart.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbRandomStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chbRandomStart.Location = new System.Drawing.Point(10, 81);
+            this.chbRandomStart.Name = "chbRandomStart";
+            this.chbRandomStart.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chbRandomStart.Size = new System.Drawing.Size(147, 19);
+            this.chbRandomStart.TabIndex = 4;
+            this.chbRandomStart.Text = "Со случайного места";
+            this.chbRandomStart.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label3.Location = new System.Drawing.Point(8, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 16);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Список песен";
+            // 
             // fConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,12 +292,14 @@
             this.BackgroundImage = global::Guess_the_Song_quiz.Properties.Resources.headphone;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(631, 446);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.linkCancel);
             this.Controls.Add(this.linkOK);
             this.Controls.Add(this.linkAdd);
             this.Controls.Add(this.linkPath);
             this.Controls.Add(this.linkClear);
-            this.Controls.Add(this.chbInclude);
+            this.Controls.Add(this.chbAllDirectories);
             this.Controls.Add(this.tbPath);
             this.Controls.Add(this.lbSongsList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -200,8 +307,9 @@
             this.MaximizeBox = false;
             this.Name = "fConfig";
             this.Text = "Настройки";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fConfig_FormClosing);
             this.Shown += new System.EventHandler(this.fConfig_Shown);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,11 +319,18 @@
 
         private System.Windows.Forms.ListBox lbSongsList;
         private System.Windows.Forms.TextBox tbPath;
-        private System.Windows.Forms.CheckBox chbInclude;
+        private System.Windows.Forms.CheckBox chbAllDirectories;
         private System.Windows.Forms.LinkLabel linkClear;
         private System.Windows.Forms.LinkLabel linkPath;
         private System.Windows.Forms.LinkLabel linkAdd;
         private System.Windows.Forms.LinkLabel linkOK;
         private System.Windows.Forms.LinkLabel linkCancel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbMusicDuration;
+        private System.Windows.Forms.ComboBox cbGameDuration;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chbRandomStart;
+        private System.Windows.Forms.Label label3;
     }
 }

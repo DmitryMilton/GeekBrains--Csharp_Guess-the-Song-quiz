@@ -13,7 +13,7 @@ namespace Guess_the_Song_quiz
         public static List<string> list = new List<string>();
         static public int gameDuration = 60;
         static public int musicDuration = 10;
-        static public bool randomStart = false;
+        static public bool randomStart = true;
         static public string lastFolder = "";
         static public bool allDirectories = false;
 
@@ -65,5 +65,5 @@ namespace Guess_the_Song_quiz
                 if (rk != null) rk.Close();
             }
         }
-
+    }
 }
