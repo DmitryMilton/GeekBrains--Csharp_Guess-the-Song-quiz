@@ -165,5 +165,10 @@ namespace Guess_the_Song_quiz
             musicList = Victorina.list.ToArray();
             lbSongsList.Items.AddRange(musicList);
         }
+
+        private void linkClear_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            lbSongsList.Items.Clear();
+        }
     }
 }

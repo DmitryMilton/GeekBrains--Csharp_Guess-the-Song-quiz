@@ -95,5 +95,11 @@ namespace Guess_the_Song_quiz
             fg.Show();
             this.Hide();
         }
+
+        private void fMain_Load(object sender, EventArgs e)
+        {
+            Victorina.ReadParam();
+            Victorina.ReadMusic();
+        }
     }
 }
