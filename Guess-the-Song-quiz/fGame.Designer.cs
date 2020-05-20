@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fGame));
             this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
             this.linkNext = new System.Windows.Forms.LinkLabel();
@@ -38,6 +39,10 @@
             this.linkPause = new System.Windows.Forms.LinkLabel();
             this.linkPlay = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblSongCnt = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblMusicDuration = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,6 +181,43 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "/";
             // 
+            // lblSongCnt
+            // 
+            this.lblSongCnt.AutoSize = true;
+            this.lblSongCnt.BackColor = System.Drawing.Color.Black;
+            this.lblSongCnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblSongCnt.ForeColor = System.Drawing.Color.White;
+            this.lblSongCnt.Location = new System.Drawing.Point(381, 369);
+            this.lblSongCnt.Name = "lblSongCnt";
+            this.lblSongCnt.Size = new System.Drawing.Size(29, 31);
+            this.lblSongCnt.TabIndex = 9;
+            this.lblSongCnt.Text = "0";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(103, 341);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(581, 10);
+            this.progressBar1.TabIndex = 10;
+            this.progressBar1.Value = 50;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblMusicDuration
+            // 
+            this.lblMusicDuration.AutoSize = true;
+            this.lblMusicDuration.BackColor = System.Drawing.Color.Transparent;
+            this.lblMusicDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMusicDuration.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblMusicDuration.Location = new System.Drawing.Point(381, 9);
+            this.lblMusicDuration.Name = "lblMusicDuration";
+            this.lblMusicDuration.Size = new System.Drawing.Size(30, 31);
+            this.lblMusicDuration.TabIndex = 11;
+            this.lblMusicDuration.Text = "0";
+            // 
             // fGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +225,9 @@
             this.BackgroundImage = global::Guess_the_Song_quiz.Properties.Resources.oy7vw3_coverartmanual;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 491);
+            this.Controls.Add(this.lblMusicDuration);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.lblSongCnt);
             this.Controls.Add(this.linkPlay);
             this.Controls.Add(this.linkPause);
             this.Controls.Add(this.lblCounter2);
@@ -193,9 +238,13 @@
             this.Controls.Add(this.WMP);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "fGame";
             this.Text = "Угадай мелодию";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fGame_FormClosing);
+            this.Load += new System.EventHandler(this.fGame_Load);
+            this.Shown += new System.EventHandler(this.fGame_Shown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fGame_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -213,5 +262,9 @@
         private System.Windows.Forms.LinkLabel linkPause;
         private System.Windows.Forms.LinkLabel linkPlay;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSongCnt;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblMusicDuration;
     }
 }
