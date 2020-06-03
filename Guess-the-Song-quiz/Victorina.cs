@@ -16,6 +16,7 @@ namespace Guess_the_Song_quiz
         static public bool randomStart = true;
         static public string lastFolder = "";
         static public bool allDirectories = false;
+        static public string answer = "";
 
         static public void ReadMusic()
         {

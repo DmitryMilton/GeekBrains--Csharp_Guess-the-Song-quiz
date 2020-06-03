@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Guess_the_Song_quiz
 {
@@ -37,6 +38,7 @@ namespace Guess_the_Song_quiz
                 musicDuration = Victorina.musicDuration;
                 int n = rnd.Next(0, Victorina.list.Count);
                 WMP.URL = Victorina.list[n];
+                Victorina.answer = WMP.URL;
                 Victorina.list.RemoveAt(n);
                 lblSongCnt.Text = Victorina.list.Count.ToString();
             }
@@ -120,7 +122,6 @@ namespace Guess_the_Song_quiz
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.Value++;
             musicDuration--;
             lblMusicDuration.Text = musicDuration.ToString();
             if (progressBar1.Value == progressBar1.Maximum)
@@ -128,6 +129,7 @@ namespace Guess_the_Song_quiz
                 EndGame();
                 return;
             }
+            progressBar1.Value++;
             if (musicDuration == 0) MakeMusic();
         }
 
@@ -145,10 +147,15 @@ namespace Guess_the_Song_quiz
 
         private void fGame_KeyDown(object sender, KeyEventArgs e)
         {
+            if (!timer1.Enabled) return;
             if (e.KeyData == Keys.A)
             {
                 GamePause();
-                if (MessageBox.Show("Правильный ответ?", "Игрок 1", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                fMessage fm = new fMessage();
+                fm.lblMessage.Text = "Игрок 1";
+                SoundPlayer sp = new SoundPlayer("Resources\\pl1.wav");
+                sp.Play();
+                if (fm.ShowDialog() == DialogResult.Yes)
                 {
                     lblCounter1.Text = Convert.ToString(Convert.ToInt32(lblCounter1.Text) + 1);
                     MakeMusic();
@@ -158,13 +165,30 @@ namespace Guess_the_Song_quiz
             if (e.KeyData == Keys.P)
             {
                 GamePause();
-                if (MessageBox.Show("Правильный ответ?", "Игрок 2", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                fMessage fm = new fMessage();
+                fm.lblMessage.Text = "Игрок 2";
+                SoundPlayer sp = new SoundPlayer("Resources\\pl2.wav");
+                sp.Play();
+                if (fm.ShowDialog() == DialogResult.Yes)
                 {
                     lblCounter2.Text = Convert.ToString(Convert.ToInt32(lblCounter2.Text) + 1);
                     MakeMusic();
                 }
                 GamePlay();
             }
+        }
+
+        private void WMP_OpenStateChange(object sender, AxWMPLib._WMPOCXEvents_OpenStateChangeEvent e)
+        {
+            if (Victorina.randomStart)
+                if (WMP.openState == WMPLib.WMPOpenState.wmposMediaOpen)
+                    WMP.Ctlcontrols.currentPosition = rnd.Next(0, (int)WMP.currentMedia.duration / 2);
+        }
+
+        private void lblCounter1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) (sender as Label).Text = Convert.ToString(Convert.ToInt32((sender as Label).Text) + 1);
+            if (e.Button == MouseButtons.Right) (sender as Label).Text = Convert.ToString(Convert.ToInt32((sender as Label).Text) - 1);
         }
     }
 }

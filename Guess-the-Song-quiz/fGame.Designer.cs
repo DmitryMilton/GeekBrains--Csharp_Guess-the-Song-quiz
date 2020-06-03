@@ -55,6 +55,7 @@
             this.WMP.Size = new System.Drawing.Size(221, 47);
             this.WMP.TabIndex = 0;
             this.WMP.Visible = false;
+            this.WMP.OpenStateChange += new AxWMPLib._WMPOCXEvents_OpenStateChangeEventHandler(this.WMP_OpenStateChange);
             // 
             // linkNext
             // 
@@ -110,6 +111,7 @@
             this.lblCounter1.Size = new System.Drawing.Size(29, 31);
             this.lblCounter1.TabIndex = 4;
             this.lblCounter1.Text = "0";
+            this.lblCounter1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblCounter1_MouseClick);
             // 
             // lblCounter2
             // 
@@ -122,6 +124,7 @@
             this.lblCounter2.Size = new System.Drawing.Size(29, 31);
             this.lblCounter2.TabIndex = 5;
             this.lblCounter2.Text = "0";
+            this.lblCounter2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblCounter1_MouseClick);
             // 
             // linkPause
             // 
